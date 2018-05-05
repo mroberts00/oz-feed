@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @donor_profile.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @donor_profile.last_name %>
+</p>
+
+<div class="thumb"> 
+  <%= image_tag @donor_profile.avatar.url %>
+</div>
+
+<p>
+  <strong>Street line one:</strong>
+  <%= @donor_profile.street_line_one %>
+</p>
+
+<p>
+  <strong>Street line two:</strong>
+  <%= @donor_profile.street_line_two %>
+</p>
+
+<p>
+  <strong>Suburb:</strong>
+  <%= @donor_profile.suburb %>
+</p>
+
+<p>
+  <strong>Postcode:</strong>
+  <%= @donor_profile.postcode %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @donor_profile.state %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @donor_profile.country %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @donor_profile.phone_number %>
+</p>
+
+<%= link_to 'Edit', edit_donor_profile_path(@donor_profile) %> |
+<%= link_to 'Back', donor_profiles_path %>

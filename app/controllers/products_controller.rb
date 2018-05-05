@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_business!, only: [:new, :edit, :create]
   # GET /products
   # GET /products.json
   def index
@@ -25,6 +25,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
+    @product.business_id = current_business.id
 
     respond_to do |format|
       if @product.save
@@ -69,6 +70,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:title, :description)
+      params.require(:product).permit(:title, :description, :image)
     end
 end

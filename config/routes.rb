@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+
+  resources :donor_profiles
+  devise_for :donors , :controllers => {registrations: "donors/registrations"}
+  resources :business_profiles
+  devise_for :businesses , :controllers => {registrations: "businesses/registrations"}
+
+
+
+  
+  devise_scope :business do  
+    get '/businesses/sign_out' => 'devise/sessions#destroy'     
+ end
+
+ devise_scope :donor do  
+  get '/donors/sign_out' => 'devise/sessions#destroy'     
+end
+  root 'products#index'
+
   resources :products
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

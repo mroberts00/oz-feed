@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Business Profiles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Business</th>
+      <th>Name</th>
+      <th>About</th>
+      <th>Street line one</th>
+      <th>Street line two</th>
+      <th>Suburb</th>
+      <th>Postcode</th>
+      <th>State</th>
+      <th>Country</th>
+      <th>Address notes</th>
+      <th>Avatar</th>
+      <th>Abn</th>
+      <th>Contact first name</th>
+      <th>Contact last name</th>
+      <th>Phone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @business_profiles.each do |business_profile| %>
+      <tr>
+        <td><%= business_profile.business %></td>
+        <td><%= business_profile.name %></td>
+        <td><%= business_profile.about %></td>
+        <td><%= business_profile.street_line_one %></td>
+        <td><%= business_profile.street_line_two %></td>
+        <td><%= business_profile.suburb %></td>
+        <td><%= business_profile.postcode %></td>
+        <td><%= business_profile.state %></td>
+        <td><%= business_profile.country %></td>
+        <td><%= business_profile.address_notes %></td>
+        <td><%= business_profile.avatar %></td>
+        <td><%= business_profile.abn %></td>
+        <td><%= business_profile.contact_first_name %></td>
+        <td><%= business_profile.contact_last_name %></td>
+        <td><%= business_profile.phone %></td>
+        <td><%= link_to 'Show', business_profile %></td>
+        <td><%= link_to 'Edit', edit_business_profile_path(business_profile) %></td>
+        <td><%= link_to 'Destroy', business_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Business Profile', new_business_profile_path %>

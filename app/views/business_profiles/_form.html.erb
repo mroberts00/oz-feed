@@ -1,0 +1,87 @@
+<%= form_with(model: business_profile, local: true) do |form| %>
+  <% if business_profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(business_profile.errors.count, "error") %> prohibited this business_profile from being saved:</h2>
+
+      <ul>
+      <% business_profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :about %>
+    <%= form.text_area :about %>
+  </div>
+
+  <div class="field">
+    <%= form.label :street_line_one %>
+    <%= form.text_field :street_line_one %>
+  </div>
+
+  <div class="field">
+    <%= form.label :street_line_two %>
+    <%= form.text_field :street_line_two %>
+  </div>
+
+  <div class="field">
+    <%= form.label :suburb %>
+    <%= form.text_field :suburb %>
+  </div>
+
+  <div class="field">
+    <%= form.label :postcode %>
+    <%= form.text_field :postcode %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.text_field :state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address_notes %>
+    <%= form.text_area :address_notes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :avatar %>
+    <%= form.file_field :avatar %>
+  </div>
+
+  <div class="field">
+    <%= form.label :abn %>
+    <%= form.text_field :abn %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contact_first_name %>
+    <%= form.text_field :contact_first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contact_last_name %>
+    <%= form.text_field :contact_last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
