@@ -2,11 +2,14 @@ class Product < ApplicationRecord
     mount_uploader :image, ImageUploader
     belongs_to :business
     has_many :line_items
+    has_many :orders, through: :line_items
     before_destroy :ensure_not_referenced_by_any_line_item
 
+
     def price
-        price = 5
+        (((self.length)*(self.height)*(self.width))/10000) + 20
     end
+
 
     private
     #ensure taht there are no line items referencing this product

@@ -26,6 +26,26 @@
     <%= form.file_field :image %>
   </div>
 
+  <div class="field">
+    <h6><%= form.label :length %> (in cm)
+    <%= form.number_field :length %></h6>
+  </div>
+
+  <div class="field">
+  <h6><%= form.label :width %> (in cm)
+    <%= form.number_field :width %></h6>
+  </div>
+
+  <div class="field">
+    <h6><%= form.label :height %> (in cm)
+    <%= form.number_field :height %></h6>
+  </div>
+
+  <div class="field">
+    <%= form.label :cost_price %> 
+    <%= form.number_field :cost_price, step: :any %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

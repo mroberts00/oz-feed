@@ -33,8 +33,8 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
-    @order = Donor.orders.save
-
+    @order.add_line_items_from_cart(@cart)
+    @order.donor_id = current_donor.id
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }

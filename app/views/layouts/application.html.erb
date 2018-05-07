@@ -11,12 +11,9 @@
 
   <body>
     <header class="header">
-      
+      <%= render 'layouts/login' %>
       <%= render 'layouts/navigation' %>
-      <% if current_donor %>
-        <p>Welcome <%= current_donor.donor_profile.first_name %></p>
- 
-      <% end %>
+
     </header>
     <section class="content">
       <div class="left_sidebar">

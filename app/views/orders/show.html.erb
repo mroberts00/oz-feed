@@ -2,8 +2,11 @@
 
 <p>
   <strong>Donor:</strong>
-  <%= @order.donor %>
+  <%= @order.donor.donor_profile.first_name %>
 </p>
+
+<p><%= @order.line_items %>
+  </p>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

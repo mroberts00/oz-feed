@@ -15,5 +15,7 @@
       <%= image_tag @product.image.url %>
     <% end %>
   </div>
+
+  <h6><%= @product.price %>
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
