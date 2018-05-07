@@ -20,6 +20,11 @@ Rails.application.routes.draw do
   get '/donors/sign_out' => 'devise/sessions#destroy'     
 end
 
+  get "/how-it-works" => "pages#how-it-works"
+
+  get "/our-story" => "pages#our-story"
+  
+
   resources :products
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

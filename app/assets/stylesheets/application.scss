@@ -16,6 +16,7 @@
 
  @import 'bootstrap';
 
+
  input[type="submit"]:hover {
     background-color: #10CE16;
     color: white;
@@ -34,9 +35,9 @@ header.header {
     text-align: left;
     background-color: #10CE16;
     margin: 0;
-    height: 12em;
-    
-}
+    height: 8em;
+    position: relative;
+};
 
 .content {
     margin: 0;

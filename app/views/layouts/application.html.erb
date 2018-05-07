@@ -12,15 +12,7 @@
   <body>
     <header class="header">
       
-      <nav class="top-nav">
-        <ul>
-          <li>Home</li>
-          <li>Browse</li>
-          <li>How it Works</li>
-          <li>Our Story</li>
-          <li>Donate</li>
-        </ul>
-      </nav>
+      <%= render 'layouts/navigation' %>
       <% if current_donor %>
         <p>Welcome <%= current_donor.donor_profile.first_name %></p>
  
