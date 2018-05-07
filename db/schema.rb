@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_05_060608) do
+ActiveRecord::Schema.define(version: 2018_05_06_113653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,11 @@ ActiveRecord::Schema.define(version: 2018_05_05_060608) do
     t.index ["reset_password_token"], name: "index_businesses_on_reset_password_token", unique: true
   end
 
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "donor_profiles", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -83,10 +88,28 @@ ActiveRecord::Schema.define(version: 2018_05_05_060608) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "donor_profile_id"
-    t.index ["donor_profile_id"], name: "index_donors_on_donor_profile_id"
     t.index ["email"], name: "index_donors_on_email", unique: true
     t.index ["reset_password_token"], name: "index_donors_on_reset_password_token", unique: true
+  end
+
+  create_table "line_items", force: :cascade do |t|
+    t.bigint "product_id"
+    t.bigint "cart_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "quantity", default: 1
+    t.bigint "order_id"
+    t.index ["cart_id"], name: "index_line_items_on_cart_id"
+    t.index ["order_id"], name: "index_line_items_on_order_id"
+    t.index ["product_id"], name: "index_line_items_on_product_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "donor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "anonymous"
+    t.index ["donor_id"], name: "index_orders_on_donor_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -101,6 +124,9 @@ ActiveRecord::Schema.define(version: 2018_05_05_060608) do
 
   add_foreign_key "business_profiles", "businesses"
   add_foreign_key "donor_profiles", "donors"
-  add_foreign_key "donors", "donor_profiles"
+  add_foreign_key "line_items", "carts"
+  add_foreign_key "line_items", "orders"
+  add_foreign_key "line_items", "products"
+  add_foreign_key "orders", "donors"
   add_foreign_key "products", "businesses"
 end

@@ -25,7 +25,7 @@ class DonorProfilesController < ApplicationController
   # POST /donor_profiles.json
   def create
     @donor_profile = DonorProfile.new(donor_profile_params)
-     @donor_profile.donor_id = current_donor.id
+    @donor_profile.donor_id = current_donor.id
     respond_to do |format|
       if @donor_profile.save
         format.html { redirect_to @donor_profile, notice: 'Donor profile was successfully created.' }

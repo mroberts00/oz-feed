@@ -1,0 +1,12 @@
+<% if notice %>
+    <aside id="notice"><%= notice %></aside>
+<% end %>
+
+<h2>Your Cart</h2>
+
+<%= render(@cart) %>
+
+<%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<%= link_to 'Edit', edit_cart_path(@cart) %> |
+<%= link_to 'Back', carts_path %>

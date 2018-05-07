@@ -1,0 +1,76 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ @import 'bootstrap';
+
+ input[type="submit"]:hover {
+    background-color: #10CE16;
+    color: white;
+}
+
+.price {
+    font-weight: bold;
+}
+
+ body {
+    margin: 0;
+    padding: 0;
+}
+
+header.header {
+    text-align: left;
+    background-color: #10CE16;
+    margin: 0;
+    height: 12em;
+    
+}
+
+.content {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+.left_sidebar {
+   background-color: #B0E4DF;
+   text-align: left;
+}
+
+.search {
+    font-size: 1.5em;
+}
+
+li {
+   padding: 0.8em;    
+}
+
+.right_sidebar {
+   display: border-box;
+   position: absolute;
+   right: 0;
+   text-align: left;
+   padding-left: 2vw;
+   width: 18vw;
+   background-color: #B0E4DF;    
+}
+
+.donor_list {
+   font-size: 1.5em;
+}
+
+ul {
+   list-style: none;
+}

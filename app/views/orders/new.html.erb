@@ -1,0 +1,17 @@
+
+
+    <h1>Please Enter Your Payment Details Below</h1>
+
+
+    <%= current_donor.donor_profile.first_name %> <%= current_donor.donor_profile.last_name %>
+
+    
+
+    <%= render @cart %>
+
+    <section class="order_form">
+    <%= render 'form', order: @order %>
+
+    <%= link_to 'Back', 'store#index' %>
+
+</section>
