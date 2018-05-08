@@ -5,4 +5,5 @@ class Donor < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_one :donor_profile
+  has_many :orders
 end

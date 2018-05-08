@@ -12,15 +12,18 @@
   </thead>
 
   <tbody>
-    <% @orders.each do |order| %>
-      <tr>
-        <td><%= order.donor.donor_profile.first_name %></td>
-        <td><%= order.donor.donor_profile.last_name %></td>
-        <td><%= order.price %></td>        
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <% if current_donor %>
+      <% current_donor.orders.each do |order| %>
+        <tr>
+          <td><%= order.donor.donor_profile.first_name %></td>
+          <td><%= order.donor.donor_profile.last_name %></td>
+          <td><%= order.price %></td>        
+          <td><%= link_to 'Show', order %></td>
+          <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% else %>
+      <p>You are only able to view your past orders once logged in.</p>
     <% end %>
   </tbody>
 </table>
