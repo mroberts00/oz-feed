@@ -5,8 +5,20 @@
   <%= @order.donor.donor_profile.first_name %>
 </p>
 
-<p><%= @order.line_items %>
-  </p>
+<h4>Products Purchased</h4>
+  <% @order.line_items.each do |line|%>
+      <h5>
+        name:
+        <%= Product.find(line.product_id).title %> x 
+        <%= line.quantity %>
+      </h5>
+    <% end %>
+      
+
+
+
+
+
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

@@ -23,6 +23,8 @@ end
   get "/how-it-works" => "pages#how-it-works"
 
   get "/our-story" => "pages#our-story"
+
+  resources :charges, only: [ :create]
   
 
   resources :products

@@ -24,6 +24,7 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
+    authorize Product
     @product = Product.new(product_params)
     @product.business_id = current_business.id
 
