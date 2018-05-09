@@ -5,13 +5,15 @@
 <% @products.in_groups_of(4, false).each do |group| %>
   <div class='row '>
     <% group.each do |product| %>
-      <div class='col-md-4 index-row'>
-        <%= image_tag(product.image_url, class: "img-responsive") %>
-        <h3><%= product.title %></h3>
-        <div><%= sanitize(product.description) %></div>
-        <div><%= number_to_currency(product.price) %></div> 
-        <%= button_to 'Add to Cart', line_items_path(product_id: product), class: 'btn btn-info btn-sm', remote: true %>
-      </div>
+      <% unless product.sold == true %>
+        <div class='col-md-4 index-row'>
+          <%= image_tag(product.image_url, class: "img-responsive") %>
+          <h3><%= product.title %></h3>
+          <div><%= sanitize(product.description) %></div>
+          <div><%= number_to_currency(product.price) %></div> 
+          <%= button_to 'Add to Cart', line_items_path(product_id: product), class: 'btn btn-info btn-sm', remote: true %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 <% end %>

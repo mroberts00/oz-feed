@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :orders
+  
   resources :line_items
   resources :carts
   root 'store#index', as: 'store_index'
@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   devise_for :donors , :controllers => {registrations: "donors/registrations"}
   resources :business_profiles
   devise_for :businesses , :controllers => {registrations: "businesses/registrations"}
-
+  resources :orders
 
 
   
@@ -23,6 +23,10 @@ end
   get "/how-it-works" => "pages#how-it-works"
 
   get "/our-story" => "pages#our-story"
+
+  get "/groceries" => "pages#groceries"
+
+  get "/ready-to-eat" => "pages#ready"
 
   resources :charges, only: [ :create]
   

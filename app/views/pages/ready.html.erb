@@ -1,0 +1,24 @@
+<h1>Ready to Eat</h1>
+
+    <ul>
+        <% @products.each do |product| %>
+            <% unless product.sold == true %>
+                <% if product.category == "Ready to Eat" %>
+                    <li>
+                        <%= image_tag(product.image_url) %> 
+                        <h2><%= product.title %></h2>
+                        <p>
+                            <%= sanitize(product.description) %> 
+                        </p>
+                        <div class="price"> 
+                            
+                            <%= number_to_currency(product.price) %>
+                                <% unless @cart.line_items.detect {|line_item| line_item.product_id == product.id  } %>
+                                    <%= button_to 'Add to Cart', line_items_path(product_id: product)  %>
+                                <% end %>
+                        </div> 
+                    </li>
+                <% end %>
+            <% end %>
+        <% end %>   
+    </ul>

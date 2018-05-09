@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  include CurrentCart
+  before_action :set_cart
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_business!, only: [:new, :edit, :create]
   # GET /products
@@ -24,7 +26,7 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    authorize Product
+    
     @product = Product.new(product_params)
     @product.business_id = current_business.id
 
@@ -71,6 +73,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:title, :description, :image, :length, :width, :height, :cost_price)
+      params.require(:product).permit(:title, :description, :image, :length, :width, :height, :cost_price, :category)
     end
 end

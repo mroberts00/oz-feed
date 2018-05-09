@@ -17,14 +17,13 @@
     </header>
     <section class="content">
       <div class="left_sidebar">
-        <div id="cart" class="carts">
-
-            <%= render_if @cart && @cart.line_items.any?, @cart %>
-
-        </div>
+ 
         <ul class="search">
-        <%= link_to 'Groceries', groceries_path %>
-        <%= link_to 'Ready to Eat', ready_to_eat_path %>
+          <li>search</li>
+          <li>categories</li>
+          <li>more categories</li>
+          <li>something else</li>
+        </ul>
       </div>
       <main class='<%= controller.controller_name %>'>
 

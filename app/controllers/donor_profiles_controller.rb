@@ -1,4 +1,6 @@
 class DonorProfilesController < ApplicationController
+  include CurrentCart
+  before_action :set_cart
   before_action :set_donor_profile, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_donor!
 

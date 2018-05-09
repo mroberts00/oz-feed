@@ -14,28 +14,27 @@
   <%= form.label :anonymous %>
   <%= form.check_box :anonymous %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+
+        <%= javascript_include_tag "https://checkout.stripe.com/checkout.js",
+         class: "stripe-button",
+         data: {
+            key: ENV["STRIPE_PUBLISHABLE_KEY"],
+            amount: @cart.total_price*100,
+            name: "OzFeed",
+            description: "Donation",
+            image: "https://stripe.com/img/documentation/checkout/marketplace.png",
+            locale: "auto",
+            currency: "aud"
+         }
+         
+         %>
 
 
   
 <% end %>
 
 
-    <%= form_tag charges_path do %>
-        <%= javascript_include_tag "https://checkout.stripe.com/checkout.js",
-         class: "stripe-button",
-         data: {
-            key: ENV["STRIPE_PUBLISHABLE_KEY"],
-            amount: @cart.total_price*100,
-            name: "Demo Site",
-            description: "Example charge",
-            image: "https://stripe.com/img/documentation/checkout/marketplace.png",
-            locale: "auto",
-            currency: "aud"
-         }
-         %>
 
-    <% end %>
+
+
 

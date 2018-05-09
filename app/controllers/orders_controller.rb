@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   include CurrentCart
+  layout "nocart"
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :set_cart, only: [:new, :create]
   before_action :ensure_cart_isnt_empty, only: :new
@@ -11,9 +12,20 @@ class OrdersController < ApplicationController
     @orders = Order.all
   end
 
+
+
   # GET /orders/1
   # GET /orders/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf {
+        send_data @order.receipt.render,
+          filename: "#{@order.created_at.strftime("%Y-%m-%d")}-ozfeed-receipt.pdf",
+          type: "application/pdf",
+          disposition: :inline
+      }
+    end
   end
 
   def recent_orders
@@ -37,10 +49,31 @@ class OrdersController < ApplicationController
     @order.donor_id = current_donor.id
     @order.price = @cart.total_price
     respond_to do |format|
-      if @order.save
+        if @order.save
+         @order.line_items.each do |line|
+            thing = Product.find(line.product_id)
+            thing.sold = true
+            thing.save
+        end
+        token = params[:stripeToken]
+        @amount = @cart.total_price.to_i*100
+
+        charge = Stripe::Charge.create({
+            amount: @amount,
+            currency: 'aud',
+            description: 'Example charge',
+            source: token,
+        
+        })
+        
+        Order.new[:params]
+
+        redirect_to controller: 'orders', action: 'show', id: Order.last.id
+
+
         Cart.destroy(session[:cart_id])
         session[:cart_id]
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        format.html 
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }

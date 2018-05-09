@@ -5,7 +5,10 @@ class Product < ApplicationRecord
     has_many :orders, through: :line_items
     before_destroy :ensure_not_referenced_by_any_line_item
 
-
+    enum category: {
+        "Grocery"          => 0,
+        "Ready to Eat"    => 1,
+    }
     def price
         (((self.length)*(self.height)*(self.width))/10000) + 20
     end

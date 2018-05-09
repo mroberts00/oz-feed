@@ -1,6 +1,9 @@
         <div class="donor-list">
-            <% Order.order("created_at DESC").first(6).each do |order| %>
-                <% unless order.anonymous %>
+            <% Order.order("created_at DESC").first(10).each do |order| %>
+                <% if order.anonymous %>
+                    <% person = Donor.find(order.donor_id) %>
+                    <%= "Anonymous donated $ #{order.price}" %>
+                <% else %>
                     <% person = Donor.find(order.donor_id) %>
                     <%= "#{person.donor_profile.first_name} donated $ #{order.price}" %>
                 <%end%>

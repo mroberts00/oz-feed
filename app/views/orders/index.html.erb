@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Orders</h1>
+<h1>Completed Orders</h1>
 
 <table>
   <thead>
@@ -8,6 +8,7 @@
       <th>Donor</th>
       <th colspan="1"></th>
       <th>Price</th>
+      <th>Date</th>
     </tr>
   </thead>
 
@@ -17,7 +18,8 @@
         <tr>
           <td><%= order.donor.donor_profile.first_name %></td>
           <td><%= order.donor.donor_profile.last_name %></td>
-          <td><%= order.price %></td>        
+          <td><%= number_to_currency(order.price) %></td> 
+          <td><%= order.created_at.strftime("%e %b %Y") %></td>       
           <td><%= link_to 'Show', order %></td>
           <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
