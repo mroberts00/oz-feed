@@ -5,10 +5,10 @@
         <% Order.order("created_at DESC").first(8).each do |order| %>
             <% if order.anonymous %>
                 <% person = Donor.find(order.donor_id) %>
-               <li> <%= "Anonymous donated $ #{order.price}" %></li>
+               <li> <%= "Anonymous donated $ #{order.price}0" %></li>
             <% else %>
                 <% person = Donor.find(order.donor_id) %>
-                <li><%= "#{person.donor_profile.first_name} donated $ #{order.price}" %></li>
+                <li><%= "#{person.donor_profile.first_name} donated $ #{order.price}0" %></li>
             <%end%>
         <% end %>
     </ul>

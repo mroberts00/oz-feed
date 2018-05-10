@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
     mount_uploader :image, ImageUploader
+    validates :title, :description, :length, :height, :width, :cost_price, :image, presence: :true
     belongs_to :business
     has_many :line_items
     has_many :orders, through: :line_items

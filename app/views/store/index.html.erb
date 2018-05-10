@@ -1,8 +1,11 @@
 <% if notice %>
     <aside id="notice"><%= notice %></aside>
 <% end %>
+<div class="heading">
+    <h1>Welcome to OzFeed ... over 20,000 meals delivered</h1>
+    <%= image_tag('veggies.jpg', id:'bigimg1', size:'500x350')  %>
+</div>
 
-<h1>OzFeed Store</h1>
     <div>
         <%= render 'products/product' %>
     </div>

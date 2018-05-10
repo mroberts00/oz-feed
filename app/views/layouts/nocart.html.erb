@@ -5,8 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= favicon_link_tag 'favicon.ico' %>
-    
-
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -22,7 +21,7 @@
           <%= render 'layouts/donor_list' %>
       
       </div>
-      <main class='<%= controller.controller_name %>'>
+      <main class='main'>
 
         <%= yield %>
       </main>

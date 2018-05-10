@@ -11,10 +11,10 @@
     </div>
   <% end %>
 
-  <%= form.label :anonymous %>
+  <%= form.label "Would you like to make the donation anonymous on the site?" %>
   <%= form.check_box :anonymous %>
 
-
+  <div class="stripe-button">
         <%= javascript_include_tag "https://checkout.stripe.com/checkout.js",
          class: "stripe-button",
          data: {
@@ -28,6 +28,8 @@
          }
          
          %>
+
+         </div>
 
 
   

@@ -1,6 +1,24 @@
-// @media only screen and (min-width: 800px) {
-//     .left_sidebar {
-//         display: none;
+@media only screen and (min-width: 800px) {
+    .left_sidebar {
+        display: none;
 
-//     }
-// }
+        .main {
+            margin: 10vw 20px;
+        }
+
+    }
+}
+
+.main {
+    margin: 10vw 18vw 0 330px;
+    padding: 2vw;
+}
+
+.order-table {
+    margin: 40px 0;
+}
+
+.stripe-button {
+    margin: 20px 0;
+    
+}
