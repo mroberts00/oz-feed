@@ -33,9 +33,10 @@
 
 .header {
     text-align: left;
-    background: #10CE16;
+    background: white;
     margin: 0;
-    height: 10vw;
+    height: 8vw;
+    border-bottom: 5px solid #10CE16;
     position: fixed;
     top: 0;
     width: 100%;
@@ -48,7 +49,6 @@
     padding: 2vw;
     display: flex;
     flex-direction: row;
-    box-sizing: border-box;
 
 }
 .left_sidebar {
@@ -56,9 +56,9 @@
    text-align: left;
    position: fixed;
    left: 0;
-   top: 10vw;
+   top: 8vw;
    width: 18vw;
-   z-index: 1;
+//    z-index: 1;
    height: 100%
 }
 
@@ -74,7 +74,7 @@ li {
    display: border-box;
    position: fixed;
    right: 0;
-   top: 10vw;
+   top: 9vw;
    text-align: left;
    padding-left: 2vw;
    width: 18vw;

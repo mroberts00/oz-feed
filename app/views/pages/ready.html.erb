@@ -15,6 +15,8 @@
                             <%= number_to_currency(product.price) %>
                                 <% unless @cart.line_items.detect {|line_item| line_item.product_id == product.id  } %>
                                     <%= button_to 'Add to Cart', line_items_path(product_id: product)  %>
+                                <% else %> 
+                                    <p>Item already in cart</p>
                                 <% end %>
                         </div> 
                     </li>

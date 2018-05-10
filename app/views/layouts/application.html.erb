@@ -4,14 +4,13 @@
     <title>Ozfeed</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header class="header">
-      <%= render 'layouts/login' %>
       <%= render 'layouts/navigation' %>
 
     </header>
@@ -22,9 +21,16 @@
             <%= render_if @cart && @cart.line_items.any?, @cart %>
 
         </div>
-        <ul class="search">
-        <%= link_to 'Groceries', groceries_path %>
-        <%= link_to 'Ready to Eat', ready_to_eat_path %>
+        <div class="search">
+          <%= form_tag products_path, :method => 'get' do %>
+            <p>
+              <%= text_field_tag :search, params[:search], :placeholder => "Product Search" %>
+              <%= submit_tag "Search", :name => nil %>
+            </p>
+          <% end %>
+          <%= link_to 'Groceries', groceries_path %>
+          <%= link_to 'Ready to Eat', ready_to_eat_path %>
+        </div>
       </div>
       <main class='<%= controller.controller_name %>'>
 
