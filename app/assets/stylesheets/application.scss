@@ -16,19 +16,6 @@
 
  @import 'bootstrap';
 
- @media only screen and (max-width: 900px) {
-    .left_sidebar {
-        display: none;
-    }
-    .content {
-        margin-top: 150px;
-    }
-
-    .main {
-        margin-left: 50px;
-    }
-
-}
 
  input[type="submit"]:hover {
     background-color: #10CE16;
@@ -114,3 +101,19 @@
       column-count: 3;
     }
   }
+
+
+
+ @media only screen and (max-width: 900px) {
+    .left_sidebar {
+        display: none;
+    }
+    .content {
+        margin-top: 150px;
+    }
+
+    .main {
+        margin-left: 50px;
+    }
+
+}

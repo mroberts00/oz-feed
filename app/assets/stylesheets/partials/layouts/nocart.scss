@@ -1,13 +1,4 @@
-@media only screen and (min-width: 800px) {
-    .left_sidebar {
-        display: none;
 
-        .main {
-            margin: 10vw 20px;
-        }
-
-    }
-}
 
 .main {
     margin: 10vw 18vw 0 330px;
@@ -20,5 +11,17 @@
 
 .stripe-button {
     margin: 20px 0;
+    
+}
+
+@media only screen and (max-width: 800px) {
+    .left_sidebar {
+        display: none;
+    }
+
+        .main {
+            margin: 10vw 20px;
+        }
+
     
 }
