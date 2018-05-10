@@ -14,12 +14,7 @@
       <%= render 'layouts/navigation' %>
     </header>
     <section class="content">
-
-      <main class='<%= controller.controller_name %>'>
-
-        <%= yield %>
-      </main>
-      <div class="right_sidebar">
+      <div class="left_sidebar">
         <div id="cart" class="carts">
 
           <%= render_if @cart && @cart.line_items.any?, @cart %>
@@ -28,6 +23,12 @@
         <h3>Latest Superstars!</h3>
           <%= render 'layouts/donor_list' %>
       </div>
+
+      <main class='<%= controller.controller_name %>'>
+
+        <%= yield %>
+      </main>
+
     </section>
   </body>
 </html>
