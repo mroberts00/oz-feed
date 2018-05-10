@@ -16,6 +16,15 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf {
+        send_data @product.receipt.render,
+          filename: "#{@product.created_at.strftime("%Y-%m-%d")}-ozfeed-receipt.pdf",
+          type: "application/pdf",
+          disposition: :inline
+      }
+    end
   end
 
   # GET /products/new

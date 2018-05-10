@@ -1,15 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 
-<p>
-  <strong>Name:</strong>
-  <%= @business_profile.name %>
-</p>
+  <div class='body'>
+    <% if @business_profile.avatar? %>
+      <%= image_tag @business_profile.avatar.url %>
+    <% end %>
+    <h2>
+      <%= @business_profile.name %>
+    </h2>
+    <h6>
+      <%= @business_profile.about %>
+    </h6>
+  </div>
 
-<p>
-  <strong>About:</strong>
-  <%= @business_profile.about %>
-</p>
+<%= link_to 'Current Listings', "/current-listings" %>
+<%= link_to 'Past Listings', "/past-listings" %>
+<%= link_to 'Create a new listing', new_product_path %>
+
+
+<h3>Business Details</h3>
 
 <p>
   <strong>Street line one:</strong>
@@ -46,11 +55,6 @@
   <%= @business_profile.address_notes %>
 </p>
 
-  <div class='body'>
-    <% if @business_profile.avatar? %>
-      <%= image_tag @business_profile.avatar.url %>
-    <% end %>
-  </div>
 
 <p>
   <strong>Abn:</strong>
@@ -72,5 +76,5 @@
   <%= @business_profile.phone %>
 </p>
 
-<%= link_to 'Edit', edit_business_profile_path(@business_profile) %> |
-<%= link_to 'Back', business_profiles_path %>
+<%= link_to 'Edit Profile', edit_business_profile_path(@business_profile) %> |
+<%= link_to 'Change Sign-Up Details', '/businesses/edit' %>

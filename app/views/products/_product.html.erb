@@ -1,22 +1,33 @@
-    <ul>
-        <% @products.each do |product| %>
-            <% unless product.sold == true %>
-                <li>
-                    <%= image_tag(product.image_url) %> 
-                    <h2><%= product.title %></h2>
-                    <p>
-                        <%= sanitize(product.description) %> 
-                    </p>
-                    <div class="price"> 
-                        
+
+<div class="card-columns">
+    <% @products.each do |product| %>
+        <% unless product.sold == true %>
+            <div class="card bg-light" style="height:600px" style="width:250px">
+                <div class="card-img-top">
+                    <%= image_tag(product.image_url, size: "250x250") %> 
+                </div>
+                <div class="card-body contents">
+                    <div class="card-title">
+                        <h2><%= product.title %></h2>
+                    </div>
+                    <div class="card-title">
+                        <h4><%= product.business.business_profile.name %></h4>
+                    </div>
+                    <div class="card-text">    
+                        <h6>
+                            <%= sanitize(product.description) %> 
+                        </h6>
+                    </div>
+                    <div class="card-title price">  
                         <%= number_to_currency(product.price) %>
-                            <% unless @cart.line_items.detect {|line_item| line_item.product_id == product.id  } %>
-                                <%= button_to 'Add to Cart', line_items_path(product_id: product)  %>
-                            <% else %> 
-                                <p>Item already in cart</p>
-                            <% end %>
-                    </div> 
-                </li>
-            <% end %>
-        <% end %>   
-    </ul>
+                        <% unless @cart.line_items.detect {|line_item| line_item.product_id == product.id  } %>
+                            <%= button_to 'Add to Cart', line_items_path(product_id: product)  %>
+                        <% else %> 
+                            <p>Item already in cart</p>
+                        <% end %>
+                    </div>
+                </div>
+            </div>     
+        <% end %>       
+    <% end %> 
+</div>

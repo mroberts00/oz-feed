@@ -17,5 +17,12 @@
   </div>
 
   <h6><%= @product.price %>
-<%= link_to 'Edit', edit_product_path(@product) %> |
+
+<% if @product.sold %>
+  <h6><%= link_to 'View/Download PDF', product_path(:format => :pdf) %></h6>
+<% else %>
+  <h6><%= link_to 'Delete', @product, method: :delete, data: { confirm: 'Are you sure?' } %></h6>
+<% end %>
+<%= link_to 'Edit', edit_product_path(@product) %> 
+|
 <%= link_to 'Back', products_path %>

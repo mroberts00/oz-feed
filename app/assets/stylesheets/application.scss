@@ -16,6 +16,19 @@
 
  @import 'bootstrap';
 
+ @media only screen and (max-width: 900px) {
+    .left_sidebar {
+        display: none;
+    }
+    .content {
+        margin-top: 150px;
+    }
+
+    .main {
+        margin-left: 50px;
+    }
+
+}
 
  input[type="submit"]:hover {
     background-color: #10CE16;
@@ -31,11 +44,14 @@
     padding: 0;
 }
 
+.cart {
+    margin-top: 20px;
+}
+
 .header {
     background: white;
     margin: 0;
     height: 9vw;
-    border-bottom: 5px solid #10CE16;
     position: fixed;
     top: 0;
     width: 100%;
@@ -43,50 +59,53 @@
     
 };
 
-.content {
-    margin: 10vw 18vw 0 18vw;
+.main {
+    margin: 10vw 18vw 0 330px;
     padding: 2vw;
-    display: flex;
-    flex-direction: row;
-
 }
 .left_sidebar {
-   background-color: #B0E4DF;
-   text-align: left;
    position: fixed;
    left: 0;
-   top: 9vw;
-   width: 15vw;
-//    z-index: 1;
-   height: 100%
+   top: 130px;
+   width: 300px;
+   height: 100%;
+   border-right: 4px solid #229402;
+}
+.donor-list {
+    text-align: center;
+    
+        ul {
+        list-style: none;
+        margin-right: 35px;
+        font-size: 15px;
+            li {
+                margin-top: 10px;
+            }
+        }
 }
 
-.search {
-    font-size: 1.5em;
+.contents {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+    padding: 20px;
 }
 
-li {
-   padding: 0.8em;    
-}
+.card-columns {
+    display: block;
+    justify-content: center;
+    margin: 5vw 10vw;
 
-.right_sidebar {
-   display: border-box;
-   position: fixed;
-   right: 0;
-   top: 9vw;
-   text-align: left;
-   padding-left: 2vw;
-   width: 20vw;
-   background-color: #B0E4DF;  
-   height: 100%;  
-   z-index: 1;
-   
-}
-
-.donor_list {
-   font-size: 1.5em;
-}
-
-ul {
-   list-style: none;
-}
+    @include media-breakpoint-only(sm) {
+        column-count: 1;
+    }
+    @include media-breakpoint-only(md) {
+        column-count: 2;
+    }
+    @include media-breakpoint-only(lg) {
+      column-count: 3;
+    }
+    @include media-breakpoint-only(xl) {
+      column-count: 3;
+    }
+  }

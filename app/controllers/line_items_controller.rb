@@ -1,6 +1,8 @@
 class LineItemsController < ApplicationController
   before_action :set_cart, only: [:create]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_donor!
+  
   include CurrentCart
 
   # GET /line_items

@@ -1,3 +1,31 @@
 // Place all the styles related to the Carts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cart {
+    padding: 20px;
+    margin: 10px;
+    border-radius: 30px;
+    background: #229402;
+    color: white;
+    text-align: left;
+    
+
+    .buttons {
+        .checkout {
+            border: 2px solid white;
+            border-radius: 5px;
+            margin: 5px 20px;
+            width: 95px;
+            background: none;
+            color: white;
+        }
+
+        .checkout:hover {
+            background: #34da06;
+        }
+    }
+    
+
+}
+

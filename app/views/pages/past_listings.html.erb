@@ -1,0 +1,24 @@
+<body class="listings">
+    <h1>Past Listings</h1>
+
+    <table>
+        <thead>
+            <tr>
+            <th>Title</th>
+            <th>Created At</th>
+            <th colspan="2"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @products.each do |product| %>
+                <% if product.sold == true %>
+                    <tr>
+                        <td><%=product.title %></td>
+                        <td><%= product.created_at.strftime("%e %b %Y").to_s %></td>
+                        <td><%= link_to 'View Details/Receipt', product %></td> 
+                    </tr>
+                <% end %>
+            <% end %>
+        </tbody>
+    </table>
+</body>

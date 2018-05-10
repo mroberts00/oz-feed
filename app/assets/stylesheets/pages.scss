@@ -1,3 +1,36 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.how-top {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .side-img {
+        justify-content: end;
+    }
+
+    h1 {
+        margin: 40px 0;
+        width: 70%;
+        
+    }
+
+    h3 {
+        margin: 30px 0;
+        width: 85%;
+    }
+
+    h4 {
+        width: 85%;
+        margin: 30px 0;
+    }
+}
+
+#bgimg1 {
+
+    height: 400px;
+    width: auto;
+}

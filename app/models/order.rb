@@ -21,7 +21,7 @@ class Order < ApplicationRecord
         name: "OzFeed",
         address: "37 Pelican Flats\nFloor 295\nSydney, \nNSW 10012,\n AUSTRALIA",
         email: "ozfeed@gmail.com",
-        logo: Rails.root.join("app/assets/images/rubiks-cube.jpeg")
+        logo: Rails.root.join("app/assets/images/logo.png")
       },
       line_items: [
         ["Date",           created_at.strftime("%e %b %Y").to_s],

@@ -28,6 +28,10 @@ end
 
   get "/ready-to-eat" => "pages#ready"
 
+  get "/current-listings" => "pages#current_listings"
+
+  get "/past-listings" => "pages#past_listings"
+
   resources :charges, only: [ :create]
   
 

@@ -39,9 +39,9 @@ gem 'dotenv-rails'
 gem 'devise'
 gem 'bootstrap'
 gem 'jquery-rails'
-gem 'pundit'
 gem 'stripe'
 gem 'receipts'
+gem 'cancancan'
 
 
 group :development, :test do

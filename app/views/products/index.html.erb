@@ -1,7 +1,8 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+    <aside id="notice"><%= notice %></aside>
+<% end %>
 
-<h1>Products</h1>
-
-            <div id="product" class="products">
-          <%= render 'products/product' %>
-        </div>
+<h1>OzFeed Store</h1>
+    <div>
+        <%= render 'products/product' %>
+    </div>

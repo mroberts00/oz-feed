@@ -1,6 +1,8 @@
 
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
-  <a class="navbar-brand" href="/"></a>
+    <%= image_tag "logo.png",  alt: "logo", class: "navbar-brand", :size => "100x100" %>
+  
+  <%= link_to 'Show Cart', @cart, class:"nav-cart" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -27,12 +29,12 @@
           <a class="dropdown-item" href="/groceries">Groceries</a>
           <a class="dropdown-item" href="/ready-to-eat">Ready to Eat</a>          
           <div class="dropdown-divider"></div>
-              <form class="form-inline my-2 my-lg-0">
-          <%= form_tag products_path, :method => 'get' do %>
-              <%= text_field_tag :search, params[:search], :placeholder => "Product Search",  :class => "form-control mr-sm-2" %>
-              <%= submit_tag "Search", :name => nil, :class => "btn btn-outline-success my-2 my-sm-0" %>   
-          <% end %>
-    </form>
+              <!--<form class="form-inline my-2 my-lg-0">-->
+                <%= form_tag products_path, class:"form-inline my-2 my-lg-0", :method => 'get' do %>
+                    <%= text_field_tag :search, params[:search], :placeholder => "Product Search",  :class => "form-control mr-sm-2" %>
+                    <%= submit_tag "Search", :name => nil, :class => "btn btn-outline-success my-2 my-sm-0" %>   
+                <% end %>
+             
         </div>
       </li>
     </ul>
@@ -41,12 +43,15 @@
     <ul class="navbar-nav ">
       <% if current_donor && current_donor.donor_profile %>
         <li class="nav-item">Welcome, <%= link_to "#{current_donor.donor_profile.first_name}", donor_profile_path(current_donor.donor_profile.id) %></li>
+        <li class="nav-item">|</li>
         <li class="nav-item"><%= link_to 'Sign Out', destroy_donor_session_path %></li>
     <% elsif current_business && current_business.business_profile %>
-        <li class="nav-item">Welcome, <%= link_to "#{current_business.business_profile.name}", business_profile_path(current_business.business_profile.id) %></li>        
+        <li class="nav-item">Welcome, <%= link_to "#{current_business.business_profile.name}", business_profile_path(current_business.business_profile.id) %></li>    
+        <li class="nav-item">|</li>            
         <li class="nav-item"><%= link_to 'Sign Out', destroy_business_session_path %></li>    
     <% else %>
         <li class="nav-item"><%= link_to 'Donor Login', donor_session_path %></li>
+        <li class="nav-item">|</li>        
         <li class="nav-item"><%= link_to 'Business Login', business_session_path %></li>
     <% end %>
     </ul>

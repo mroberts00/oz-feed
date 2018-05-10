@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Ozfeed</title>
+    <%= favicon_link_tag 'favicon.ico' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,13 +21,13 @@
           <%= render_if @cart && @cart.line_items.any?, @cart %>
 
         </div>
-        <h3>Latest Superstars!</h3>
           <%= render 'layouts/donor_list' %>
       </div>
 
       <main class='<%= controller.controller_name %>'>
-
-        <%= yield %>
+        <div class="container main">
+          <%= yield %>
+        </div>
       </main>
 
     </section>

@@ -4,6 +4,8 @@
     <title>Ozfeed</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag 'favicon.ico' %>
+    
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -11,28 +13,20 @@
 
   <body>
     <header class="header">
-      <%= render 'layouts/login' %>
       <%= render 'layouts/navigation' %>
 
     </header>
     <section class="content">
       <div class="left_sidebar">
- 
-        <ul class="search">
-          <li>search</li>
-          <li>categories</li>
-          <li>more categories</li>
-          <li>something else</li>
-        </ul>
+      
+          <%= render 'layouts/donor_list' %>
+      
       </div>
       <main class='<%= controller.controller_name %>'>
 
         <%= yield %>
       </main>
-      <div class="right_sidebar">
-        <h3>Latest Superstars!</h3>
-          <%= render 'layouts/donor_list' %>
-      </div>
+
     </section>
   </body>
 </html>
