@@ -18,10 +18,26 @@
       <li class="nav-item">
         <a class="nav-link" href="/our-story">Our Story</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/business_profiles#index">Partner Profiles</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/business_profiles#index">Partner Profiles</a>
+          <a class="dropdown-item" href="/groceries">Groceries</a>
+          <a class="dropdown-item" href="/ready-to-eat">Ready to Eat</a>          
+          <div class="dropdown-divider"></div>
+              <form class="form-inline my-2 my-lg-0">
+          <%= form_tag products_path, :method => 'get' do %>
+              <%= text_field_tag :search, params[:search], :placeholder => "Product Search",  :class => "form-control mr-sm-2" %>
+              <%= submit_tag "Search", :name => nil, :class => "btn btn-outline-success my-2 my-sm-0" %>   
+          <% end %>
+    </form>
+        </div>
       </li>
     </ul>
+
+
     <ul class="navbar-nav ">
       <% if current_donor && current_donor.donor_profile %>
         <li class="nav-item">Welcome, <%= link_to "#{current_donor.donor_profile.first_name}", donor_profile_path(current_donor.donor_profile.id) %></li>
@@ -35,5 +51,6 @@
     <% end %>
     </ul>
   </div>
+  
 </nav>
 
