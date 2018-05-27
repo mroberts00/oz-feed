@@ -1,11 +1,34 @@
+
+<div class="hero">
+    <div class="hero-text">
+        <h1>Welcome to OzFeed ... over 20,000 meals delivered</h1>
+    </div>
+</div>
+
 <% if notice %>
     <aside id="notice"><%= notice %></aside>
 <% end %>
-<div class="heading">
-    <h1>Welcome to OzFeed ... over 20,000 meals delivered</h1>
-    <%= image_tag('veggies.jpg', id:'bigimg1', size:'500x350')  %>
+
+<div class="site-info">
+    <div class="how-it-works">
+        <%= link_to how_it_works_path do %>
+            <%= image_tag("food-basket2.jpg" , alt: "food basket", :class=> "img-circular") %>
+        <% end %>
+        <p>Letting you know exactly where your money is spent, find out how OzFeed works.</p>
+    </div>
+    <div class="about">
+        <%= link_to our_story_path do %>
+            <%= image_tag("food-boxes.jpg" , alt: "food boxes", :class=> "img-circular") %>
+        <% end %>
+        <p>From humble beginings we've come a long way. Check out our story!</p>
+    </div>
+
 </div>
 
-    <div>
-        <%= render 'products/product' %>
-    </div>
+<div id="bgimg2" title="Seeking Human Kindess">
+</div>
+
+<div class="latest-listings">
+    <h1>Our Latest Listings!</h1>
+    <%= render 'products/product' %>
+</div>
