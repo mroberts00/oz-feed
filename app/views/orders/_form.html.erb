@@ -1,39 +1,39 @@
-<%= form_with(model: order, local: true) do |form| %>
-  <% if order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
-      <ul>
-      <% order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+<div class="anon"
+  <%= form_with(model: order, local: true) do |form| %>
+    <% if order.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+        <ul>
+        <% order.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form.label "Would you like to make the donation anonymous on the site?" %>
+    <%= form.check_box :anonymous %>
+
+    <div class="stripe-button">
+      <%= javascript_include_tag "https://checkout.stripe.com/checkout.js",
+        class: "stripe-button",
+        data: {
+          key: ENV["STRIPE_PUBLISHABLE_KEY"],
+          amount: @cart.total_price*100,
+          name: "OzFeed",
+          description: "Donation",
+          image: "https://stripe.com/img/documentation/checkout/marketplace.png",
+          locale: "auto",
+          currency: "aud"
+        }
+        
+        %>
+
+      </div>
   <% end %>
-
-  <%= form.label "Would you like to make the donation anonymous on the site?" %>
-  <%= form.check_box :anonymous %>
-
-  <div class="stripe-button">
-        <%= javascript_include_tag "https://checkout.stripe.com/checkout.js",
-         class: "stripe-button",
-         data: {
-            key: ENV["STRIPE_PUBLISHABLE_KEY"],
-            amount: @cart.total_price*100,
-            name: "OzFeed",
-            description: "Donation",
-            image: "https://stripe.com/img/documentation/checkout/marketplace.png",
-            locale: "auto",
-            currency: "aud"
-         }
-         
-         %>
-
-         </div>
-
-
-  
-<% end %>
+</div>
 
 
 

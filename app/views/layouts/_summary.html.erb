@@ -1,5 +1,5 @@
-<article>
-    <h2>Please review your order</h2>
+<div class="order-summary">
+    <h5>Please review your order</h5>
     <table class="order-table">
         <%= render(@cart.line_items) %>
 
@@ -10,4 +10,4 @@
     </table>
     <%= button_to 'Cancel Order', @cart, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-</article>
+</div>
