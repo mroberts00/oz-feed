@@ -1,26 +1,28 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Donor:</strong>
-  <%= @order.donor.donor_profile.first_name %>
-</p>
+<div class="thanks-bg">
+</div>
+<div class="middle-layer">
+  <div class="complete-order">
+    <div class="order-content">
 
-<h4>Products Purchased</h4>
-  <% @order.line_items.each do |line|%>
+      <p id="notice"><%= notice %></p>
+
       <h5>
-        name:
-        <%= Product.find(line.product_id).title %> x 
-        <%= line.quantity %>
+        <%= @order.donor.donor_profile.first_name %> you're a superstar! <br><br>
+        Thanks for your donation of $<%= @order.price %>.<br><br>
+        Your order of:<br><br>
+          <% @order.line_items.each do |line|%>
+            <%= Product.find(line.product_id).title  %>, 
+          <% end %><br><br>
+        Will help feed many people in need.
+
       </h5>
-    <% end %>
-      
+            
+      <h6>You can download a copy of your tax receipt <%= link_to 'here.', order_path(:format => :pdf), target: :_blank %></h6>
+      <br>
+  <!--    <%= link_to 'Edit', edit_order_path(@order) %> | -->
+      <%= link_to 'View My Orders', orders_path %>
+    </div>
+  </div>
+</div>
 
-
-
-
-<h6><%= link_to 'View/Download PDF', order_path(:format => :pdf) %></h6>
-
-
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
