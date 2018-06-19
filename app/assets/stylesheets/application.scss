@@ -215,6 +215,29 @@
     }
 }
 
+// For page headers
+
+.page-head {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .page-top {
+        min-height: 10vh;
+        align-content: center;
+        text-align: center;
+        justify-content: center;
+        
+
+    }
+
+    h1 {
+        margin: 10vh 0 5vh 0;
+        color: #229402;
+        
+    }
+}
+
  @media only screen and (max-width: 900px) {
     .left_sidebar {
         display: none;
