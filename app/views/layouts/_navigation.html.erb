@@ -46,7 +46,9 @@
         <li class="nav-item">|</li>
         <li class="nav-item"><%= link_to 'Sign Out', destroy_donor_session_path %></li>
     <% elsif current_business && current_business.business_profile %>
-        <li class="nav-item">Welcome, <%= link_to "#{current_business.business_profile.name}", business_profile_path(current_business.business_profile.id) %></li>    
+        <li class="nav-item">Welcome, <%= link_to "#{current_business.business_profile.name}", business_profile_path(current_business.business_profile.id) %></li> 
+        <li class="nav-item">|</li>    
+        <li class="nav-item"><%= link_to 'New listing', new_product_path %></li>
         <li class="nav-item">|</li>            
         <li class="nav-item"><%= link_to 'Sign Out', destroy_business_session_path %></li>    
     <% else %>
